@@ -7,6 +7,12 @@ const getMarker = (req, res) => {
     res.status(200).json(results.rows);
   });
 };
+const getUserMarkers = (req, res) => {
+  pool.query(queries.getUserMarkers, (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows);
+  });
+};
 
 const setMarker = (req, res) => {
   const { latitude, longitude } = req.body;
@@ -76,4 +82,5 @@ module.exports = {
   getMarkerByCoordinates,
   setMarkerForUser,
   getMarkerById,
+  getUserMarkers,
 };
