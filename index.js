@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://map4-front.vercel.app/",
+    origin: "https://map5-front.vercel.app/",
     credentials: true,
   })
 );
