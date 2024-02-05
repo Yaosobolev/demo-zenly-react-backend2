@@ -77,7 +77,30 @@ async function login(req, res) {
   }
 }
 
+async function getUserByUsername(req, res) {
+  try {
+    const { name } = req.query;
+    const checked = await pool.query(queries.getUserByUsername, [name]);
+    const user = checked.rows[0];
+
+    if (checked.rows.length > 0) {
+      return res.status(200).json({
+        message: "Пользователь с таким именем существует ",
+        user,
+      });
+    } else {
+      res.status(400).json({
+        message: "Пользователь с таким именем существует ",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Ошибка сервера" });
+  }
+}
+
 module.exports = {
   register,
   login,
+  getUserByUsername,
 };

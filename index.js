@@ -10,14 +10,14 @@ const markersRoutes = require("./src/marker/routes");
 const authRoutes = require("./src/auth/routes");
 
 const app = express();
-const port = 3001;
+const port = 3000;
 // const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://map5-front.vercel.app",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
