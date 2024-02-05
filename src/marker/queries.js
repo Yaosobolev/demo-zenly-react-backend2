@@ -1,5 +1,6 @@
 const getMarkers = "select * from markers";
-const getUserMarkers = "select marker_id from users";
+const getUserMarkers =
+  "SELECT markers.latitude, markers.longitude FROM users INNER JOIN markers ON users.marker_id = markers.id;";
 const setMarkers = "INSERT INTO markers (latitude, longitude) VALUES ($1, $2)";
 const setMarkerForUser = "UPDATE users SET marker_id = $1 WHERE name = $2";
 
